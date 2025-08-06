@@ -1,5 +1,7 @@
-// EXACT COPY from db.json - tüm array field'lar dahil
-const siteData = {
+import { Redis } from '@upstash/redis';
+
+// Initial seed data - sadece ilk setup için
+const initialSiteData = {
   "general": {
     "siteName": "Kırklareli Süt Üreticileri Birliği",
     "logoUrl": "/uploads/image-1752261076634-964726850.png"
@@ -210,7 +212,7 @@ const siteData = {
   }
 };
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   console.log(`${req.method} /api/sitedata called`);
   
   try {
@@ -225,13 +227,64 @@ export default function handler(req, res) {
     }
 
     if (req.method === 'GET') {
-      console.log('GET request - returning EXACT db.json structure');
+      console.log('GET request - fetching from Upstash Redis');
+      
+      // Redis client oluştur (Upstash env vars)
+      const redis = new Redis({
+        url: process.env.KV_REST_API_URL,
+        token: process.env.KV_REST_API_TOKEN,
+      });
+      
+      // Redis'den data çek
+      let siteData = await redis.get('siteData');
+      
+      // Eğer Redis'de data yoksa, initial data'yı kaydet ve döndür
+      if (!siteData) {
+        console.log('No data in Redis, seeding initial data...');
+        await redis.set('siteData', JSON.stringify(initialSiteData));
+        siteData = initialSiteData;
+      } else if (typeof siteData === 'string') {
+        siteData = JSON.parse(siteData);
+      }
+      
       return res.status(200).json(siteData);
     }
 
     if (req.method === 'POST') {
-      console.log('POST request - simulated update');
-      return res.status(200).json({ message: 'Data updated!' });
+      console.log('POST request - updating Upstash Redis');
+      
+      const updateData = req.body;
+      console.log('Update data received:', Object.keys(updateData || {}));
+      
+      if (!updateData) {
+        return res.status(400).json({ error: 'No data provided' });
+      }
+      
+      // Redis client oluştur
+      const redis = new Redis({
+        url: process.env.KV_REST_API_URL,
+        token: process.env.KV_REST_API_TOKEN,
+      });
+      
+      // Mevcut data'yı al
+      let currentData = await redis.get('siteData');
+      if (currentData && typeof currentData === 'string') {
+        currentData = JSON.parse(currentData);
+      } else if (!currentData) {
+        currentData = initialSiteData;
+      }
+      
+      // Shallow merge - admin panel'den gelen değişiklikleri uygula
+      const updatedData = { ...currentData, ...updateData };
+      
+      // Redis'e kaydet
+      await redis.set('siteData', JSON.stringify(updatedData));
+      
+      console.log('Data successfully updated in Redis');
+      return res.status(200).json({ 
+        message: 'Data updated successfully in Redis database!',
+        updated: Object.keys(updateData)
+      });
     }
 
     return res.status(405).json({ message: 'Method not allowed' });
@@ -240,7 +293,8 @@ export default function handler(req, res) {
     console.error('Sitedata API error:', error);
     return res.status(500).json({ 
       message: 'Internal server error',
-      error: error.message 
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
 } 
