@@ -164,8 +164,41 @@ const siteData = {
     "law5200": {
       "title": "5200 Sayılı Üretici Birlikleri Kanunu",
       "content": [
-        "5200 sayılı Tarımsal Üretici Birlikleri Hakkında Kanun 2004 yılında yürürlüğe girmiştir."
-      ]
+        "5200 sayılı \"Tarımsal Üretici Birlikleri Hakkında Kanun\" 21/12/2004 tarihli ve 25687 sayılı Resmi Gazete'de yayımlanarak yürürlüğe girmiştir.",
+        "Bu kanunla, tarımsal ürünlerin değerlendirilmesi ve pazarlanması ile üreticilerin ekonomik ve sosyal durumlarının iyileştirilmesi amacıyla tarımsal üretici birliklerinin kurulması, işleyişi ve denetimi düzenlenmiştir."
+      ],
+      "downloadUrl": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5200.pdf"
+    },
+    "regulation": {
+      "title": "Üretici Birlikleri Tüzüğü",
+      "content": [
+        "Üretici Birlikleri Tüzüğü, 5200 sayılı Kanun'un uygulanmasına dair usul ve esasları belirlemektedir.",
+        "Tüzükte birlik kurma şartları, organları, üyelik işlemleri, mali hükümler ve denetim esasları düzenlenmiştir."
+      ],
+      "downloadUrl": "#"
+    },
+    "supportDecrees": {
+      "title": "Destekleme Kararnameleri",
+      "content": [
+        {
+          "year": "2024",
+          "title": "2024 Yılı Destekleme Kararları",
+          "items": [
+            "Süt üretimi teşvik primi: Litre başına 0,50 TL",
+            "Kalite prim desteği: A+ kalite sütler için %10 ek prim",
+            "Organik süt desteği: Litre başına 1,00 TL"
+          ]
+        },
+        {
+          "year": "2024",
+          "title": "Soğutma Tankı Destekleri",
+          "items": [
+            "Bireysel soğutma tankı alımında %50 oranında destek sağlanmaktadır.",
+            "Azami destek tutarı 25.000 TL'dir."
+          ]
+        }
+      ],
+      "downloadUrl": "#"
     }
   },
   "footer": {
