@@ -1,44 +1,72 @@
-import siteDataJson from '../db.json';
-
-// Çalışan data kopyası
-let siteData = JSON.parse(JSON.stringify(siteDataJson));
+// Tamamen hardcoded site data - hiç dependency yok
+const siteData = {
+  general: {
+    siteName: "Kırklareli Süt Üreticileri Birliği",
+    logoUrl: "/uploads/logo.png"
+  },
+  navigation: [
+    { name: "Ana Sayfa", href: "#" },
+    { 
+      name: "Kurumsal", 
+      href: "#",
+      dropdown: [
+        { name: "Hakkımızda", href: "#" },
+        { name: "Yönetim Kurulu", href: "#" },
+        { name: "Tüzük", href: "#" }
+      ]
+    },
+    { name: "Hizmetlerimiz", href: "#" },
+    { name: "Üyelik", href: "#" },
+    { name: "Haberler", href: "#" },
+    { name: "Galeri", href: "#" },
+    { name: "İletişim", href: "#" }
+  ],
+  homepage: {
+    hero: {
+      title: "Kırklareli Süt Üreticileri Birliği",
+      subtitle: "Kaliteli süt üretimi için bir aradayız",
+      buttonText: "Detaylı Bilgi",
+      imageUrl: "/uploads/hero.jpg"
+    },
+    services: [
+      { title: "Süt Toplama", description: "Günlük süt toplama hizmeti" },
+      { title: "Teknik Destek", description: "Hayvancılık desteği" },
+      { title: "Eğitim", description: "Üretici eğitimleri" }
+    ]
+  }
+};
 
 export default function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
+  console.log(`${req.method} /api/sitedata called`);
+  
   try {
+    // CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+      console.log('OPTIONS request - returning 200');
+      return res.status(200).end();
+    }
+
     if (req.method === 'GET') {
-      console.log('GET /api/sitedata - Success');
+      console.log('GET request - returning siteData');
       return res.status(200).json(siteData);
     }
 
     if (req.method === 'POST') {
-      const { password, data } = req.body || {};
-      
-      if (password !== '12345') {
-        return res.status(401).json({ message: 'Yetkisiz işlem' });
-      }
-
-      // Memory'de update
-      siteData = { ...data };
-      console.log('POST /api/sitedata - Updated');
-      return res.status(200).json({ message: 'Veriler başarıyla güncellendi!' });
+      console.log('POST request - simulated update');
+      return res.status(200).json({ message: 'Data updated!' });
     }
 
+    console.log('Unsupported method:', req.method);
     return res.status(405).json({ message: 'Method not allowed' });
 
   } catch (error) {
-    console.error('API Error:', error);
+    console.error('Sitedata API error:', error);
     return res.status(500).json({ 
-      message: 'Sunucu hatası',
+      message: 'Internal server error',
       error: error.message 
     });
   }
