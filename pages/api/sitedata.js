@@ -1,9 +1,76 @@
-import fs from 'fs/promises';
-import path from 'path';
-import siteDataJson from '../../db.json' assert { type: 'json' };
-
-// Static data backup
-let siteData = siteDataJson;
+// Site verileri için basit in-memory storage
+const siteData = {
+  "general": {
+    "siteName": "Kırklareli Süt Üreticileri Birliği",
+    "logoUrl": "/uploads/image-1752261076634-964726850.png"
+  },
+  "navigation": [
+    {
+      "name": "Ana Sayfa",
+      "href": "#"
+    },
+    {
+      "name": "Kurumsal",
+      "href": "#",
+      "dropdown": [
+        {
+          "name": "Hakkımızda",
+          "href": "#"
+        },
+        {
+          "name": "Yönetim Kurulu",
+          "href": "#"
+        },
+        {
+          "name": "Tüzük",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "name": "Hizmetlerimiz",
+      "href": "#"
+    },
+    {
+      "name": "Üyelik",
+      "href": "#"
+    },
+    {
+      "name": "Haberler",
+      "href": "#"
+    },
+    {
+      "name": "Galeri",
+      "href": "#"
+    },
+    {
+      "name": "İletişim",
+      "href": "#"
+    }
+  ],
+  "homepage": {
+    "hero": {
+      "title": "Kırklareli Süt Üreticileri Birliği",
+      "subtitle": "Kaliteli süt üretimi ve güvenilir hizmet anlayışımızla üreticilerimizin yanındayız.",
+      "buttonText": "Detaylı Bilgi",
+      "imageUrl": "/uploads/image-1752261111057-586150913.png"
+    },
+    "services": [
+      {
+        "title": "Süt Toplama Hizmeti",
+        "description": "Günlük süt toplama hizmetimizle üreticilerimizden kaliteli sütleri toplayıp işleme tesislerimize ulaştırıyoruz."
+      },
+      {
+        "title": "Teknik Destek",
+        "description": "Deneyimli teknik personelimizle üreticilerimize hayvancılık konusunda profesyonel destek sağlıyoruz."
+      },
+      {
+        "title": "Eğitim Programları",
+        "description": "Süt kalitesini artırmak ve verimli hayvancılık için düzenli eğitim programları düzenliyoruz."
+      }
+    ]
+  }
+};
 
 export default async function handler(req, res) {
   // CORS headers
@@ -22,7 +89,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'GET') {
     try {
-      // Önce static data'yı döndür
+      console.log('GET request received');
       res.status(200).json(siteData);
     } catch (error) {
       console.error('GET Error:', error);
@@ -34,15 +101,15 @@ export default async function handler(req, res) {
   } else if (req.method === 'POST') {
     // Site verilerini güncelle
     try {
+      console.log('POST request received');
       const { password, data } = req.body;
       if (password !== '12345') {
         return res.status(401).json({ message: 'Yetkisiz işlem' });
       }
 
-      // Memory'de güncelle
-      siteData = data;
+      // Memory'de güncelle (geçici)
+      Object.assign(siteData, data);
       
-      // Vercel'de file write denemeyin - read-only filesystem
       res.status(200).json({ message: 'Veriler başarıyla güncellendi! (Memory)' });
     } catch (error) {
       console.error('POST Error:', error);
