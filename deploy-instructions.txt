@@ -1,0 +1,36 @@
+# KIRKLARELI SÜT BİRLİĞİ WEBSİTE DEPLOYMENT
+
+## 🌐 HOSTING SEÇENEKLERİ
+
+### 1. cPanel/Shared Hosting
+1. kirklareli-sut-birligi-website.zip dosyasını indirin
+2. cPanel File Manager → public_html klasöründe extract edin
+3. db.json dosyasını da public_html'e yükleyin
+4. Site hazır! Admin panel: Footer'da nokta (.) çift tık → KSB2024!Admin
+
+### 2. Vercel (Ücretsiz + Hızlı)
+1. GitHub hesabı oluşturun
+2. Bu projeyi GitHub'a yükleyin
+3. Vercel.com'da GitHub ile giriş yapın
+4. Projeyi import edin
+5. Deploy butonuna basın
+6. Otomatik SSL + CDN dahil!
+
+### 3. Netlify (Ücretsiz + Kolay)
+1. Netlify.com'a gidin  
+2. Drag & drop ile dist klasörünü sürükleyin
+3. Anında yayında!
+
+## 📊 VERİ YÖNETİMİ
+- db.json dosyası tüm içerik verilerini tutar
+- Admin panel ile tüm içerikler yönetilebilir
+- Değişiklikler otomatik kaydedilir
+
+## 🔐 GÜVENLİK
+- Admin panel gizli link (footer nokta çift tık)
+- Güçlü şifre: KSB2024!Admin  
+- 3 yanlış deneme → 15dk lockout
+- 2 saat otomatik logout
+
+## 📞 DESTEK
+Herhangi bir sorun olursa screenshoot alıp paylaşın! 
