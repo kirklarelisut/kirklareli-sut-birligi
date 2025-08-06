@@ -1,4 +1,4 @@
-// Tamamen hardcoded site data - hiç dependency yok
+// COMPLETE site data - tüm required fields
 const siteData = {
   general: {
     siteName: "Kırklareli Süt Üreticileri Birliği",
@@ -33,6 +33,58 @@ const siteData = {
       { title: "Teknik Destek", description: "Hayvancılık desteği" },
       { title: "Eğitim", description: "Üretici eğitimleri" }
     ]
+  },
+  footer: {
+    socials: {
+      facebook: "https://facebook.com/kirklarelisut",
+      instagram: "https://instagram.com/kirklarelisut", 
+      twitter: "https://twitter.com/kirklarelisut"
+    },
+    contact: {
+      address: "Kırklareli Merkez",
+      phone: "+90 288 XXX XX XX",
+      email: "info@kirklarelisutbirligi.com"
+    }
+  },
+  about: {
+    title: "Hakkımızda",
+    content: ["Kırklareli Süt Üreticileri Birliği olarak üreticilerimize hizmet veriyoruz."]
+  },
+  board: {
+    title: "Yönetim Kurulu",
+    members: [
+      { name: "Başkan", position: "Yönetim Kurulu Başkanı", image: "/uploads/member1.jpg" }
+    ]
+  },
+  services: {
+    title: "Hizmetlerimiz", 
+    content: ["Süt toplama", "Teknik destek", "Eğitim programları"]
+  },
+  membership: {
+    title: "Üyelik",
+    content: ["Üyelik başvurusu için iletişime geçin."]
+  },
+  news: {
+    title: "Haberler",
+    items: [
+      { title: "Örnek Haber", date: "2024-01-01", content: "Haber içeriği" }
+    ]
+  },
+  gallery: {
+    title: "Galeri",
+    images: [
+      { src: "/uploads/gallery1.jpg", alt: "Galeri 1" }
+    ]
+  },
+  contact: {
+    title: "İletişim",
+    address: "Kırklareli Merkez",
+    phone: "+90 288 XXX XX XX", 
+    email: "info@kirklarelisutbirligi.com"
+  },
+  legal: {
+    privacy: "Gizlilik politikası...",
+    terms: "Kullanım şartları..."
   }
 };
 
@@ -51,7 +103,7 @@ export default function handler(req, res) {
     }
 
     if (req.method === 'GET') {
-      console.log('GET request - returning siteData');
+      console.log('GET request - returning COMPLETE siteData');
       return res.status(200).json(siteData);
     }
 
