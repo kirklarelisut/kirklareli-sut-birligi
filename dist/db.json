@@ -1,0 +1,308 @@
+{
+  "general": {
+    "siteName": "Kırklareli Süt Üreticileri Birliği",
+    "logoUrl": "/uploads/image-1752261076634-964726850.png"
+  },
+  "navigation": [
+    {
+      "name": "Ana Sayfa",
+      "href": "#"
+    },
+    {
+      "name": "Kurumsal",
+      "href": "#",
+      "dropdown": [
+        {
+          "name": "Hakkımızda",
+          "href": "#"
+        },
+        {
+          "name": "Yönetim Kurulu",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "name": "Mevzuat",
+      "href": "#",
+      "dropdown": [
+        {
+          "name": "5200 Sayılı Üretici Birlikleri Kanunu",
+          "href": "#"
+        },
+        {
+          "name": "Üretici Birlikleri Tüzüğü",
+          "href": "#"
+        },
+        {
+          "name": "Destekleme Kararnameleri",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "name": "Galeri",
+      "href": "#"
+    },
+    {
+      "name": "Süt Toplama Merkezlerimiz",
+      "href": "#"
+    },
+    {
+      "name": "Üyelik İşlemleri",
+      "href": "#"
+    },
+    {
+      "name": "İletişim",
+      "href": "#"
+    }
+  ],
+  "collectionCenters": [
+    {
+      "id": "uuid1",
+      "name": "Kırklareli Merkez Toplama",
+      "address": "Sanayi Bölgesi, 1. Cadde No: 5, Merkez/Kırklareli",
+      "contactPerson": "Hasan Veli",
+      "phone": "0555 111 2233"
+    },
+    {
+      "id": "uuid2",
+      "name": "Babaeski Soğutma Tankı",
+      "address": "Gazi Kemal Mahallesi, Fatih Cad. No: 112, Babaeski/Kırklareli",
+      "contactPerson": "Ayşe Güneş",
+      "phone": "0555 222 3344"
+    },
+    {
+      "id": "uuid3",
+      "name": "Pınarhisar Toplama Noktası",
+      "address": "Dere Mahallesi, Cumhuriyet Meydanı Yanı, No: 8, Pınarhisar/Kırklareli",
+      "contactPerson": "Murat Kaya",
+      "phone": "0555 333 4455"
+    },
+    {
+      "id": "uuid4",
+      "name": "Vize Süt Alım Merkezi",
+      "address": "Devlet Mahallesi, Atatürk Cad. No: 23, Vize/Kırklareli",
+      "contactPerson": "Fatma Esen",
+      "phone": "0555 444 5566"
+    },
+    {
+      "id": "d0a35bf1-e415-4fdc-985a-9028765d89ae",
+      "name": "Yeni Merkez",
+      "address": "",
+      "contactPerson": "",
+      "phone": ""
+    },
+    {
+      "id": "a438862c-7832-4ed5-afd5-547ff4ac092d",
+      "name": "Yeni Merkez",
+      "address": "",
+      "contactPerson": "",
+      "phone": ""
+    }
+  ],
+  "homepage": {
+    "hero": {
+      "title": "Üreticinin Gücü, Sektörün Geleceği",
+      "subtitle": "Bölgemizdeki süt üreticilerinin haklarını korumak, üretim kalitesini ve verimliliği artırmak, ürünlerin pazarlanmasında ortak çözümler sunmak için çalışıyoruz.",
+      "buttonText": "Bizimle İletişime Geçin",
+      "imageUrl": "/uploads/image-1752259757636-20681881.png"
+    },
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Kayıtlı Üye"
+      },
+      {
+        "value": "20 Ton",
+        "label": "Günlük Toplanan Süt"
+      },
+      {
+        "value": "19 Yıl",
+        "label": "Sektörde Tecrübe"
+      }
+    ],
+    "features": [
+      {
+        "title": "Kalite ve Denetim",
+        "description": "Üyelerimizden toplanan sütün kalite standartlarını belirliyor, laboratuvar analizleri ile denetliyor ve sütün değerinde satılmasına öncülük ediyoruz."
+      },
+      {
+        "title": "Eğitim ve Danışmanlık",
+        "description": "Hayvan sağlığı, besleme ve modern çiftlik yönetimi konularında teknik danışmanlık ve eğitimler düzenliyor, hibe programlarına erişimi kolaylaştırıyoruz."
+      },
+      {
+        "title": "Ortak Pazarlama",
+        "description": "Üyelerimizin ürettiği sütün en iyi koşullarda pazarlanması için sanayicilerle güçlü ilişkiler kuruyor ve ortak stratejiler geliştiriyoruz."
+      }
+    ],
+    "recentNews": {
+      "title": "Birlikten Haberler"
+    }
+  },
+  "about": {
+    "title": "Misyon ve Vizyonumuz",
+    "content": [
+      "Kırklareli Süt Üreticileri Birliği, 5200 sayılı Tarımsal Üretici Birlikleri Kanunu kapsamında, bölgedeki süt üreticilerini tek çatı altında toplayarak onların ekonomik ve sosyal menfaatlerini korumak, mesleki faaliyetlerini kolaylaştırmak ve ürünlerini daha iyi değerlendirmek amacıyla 2005 yılında kurulmuştur.",
+      "Vizyonumuz; üyelerimizin ürettiği sütün kalitesini Avrupa Birliği standartlarına ulaştırmak, sürdürülebilir ve karlı bir üretim modeli oluşturmalarına destek olmak, Kırklareli hayvancılığını ulusal ve uluslararası düzeyde rekabet edebilir bir konuma getirmektir. Şeffaflık, adalet ve üye memnuniyeti temel ilkelerimizdir."
+    ],
+    "imageUrl": "/uploads/image-1752261111057-586150913.png"
+  },
+  "boardMembers": [
+    {
+      "name": "Ahmet Yılmaz",
+      "title": "Yönetim Kurulu Başkanı",
+      "imageUrl": "https://placehold.co/400x400/EFF6FF/1D4ED8?text=A.Y."
+    },
+    {
+      "name": "Ayşe Kaya",
+      "title": "Başkan Yardımcısı",
+      "imageUrl": "https://placehold.co/400x400/EFF6FF/1D4ED8?text=A.K."
+    },
+    {
+      "name": "Mehmet Öztürk",
+      "title": "Muhasip Üye",
+      "imageUrl": "https://placehold.co/400x400/EFF6FF/1D4ED8?text=M.Ö."
+    },
+    {
+      "name": "Fatma Demir",
+      "title": "Sekreter Üye",
+      "imageUrl": "https://placehold.co/400x400/EFF6FF/1D4ED8?text=F.D."
+    },
+    {
+      "name": "Hasan Çelik",
+      "title": "Yönetim Kurulu Üyesi",
+      "imageUrl": "https://placehold.co/400x400/EFF6FF/1D4ED8?text=H.Ç."
+    },
+    {
+      "name": "Zeynep Arslan",
+      "title": "Yönetim Kurulu Üyesi",
+      "imageUrl": "https://placehold.co/400x400/EFF6FF/1D4ED8?text=Z.A."
+    }
+  ],
+  "headlines": [
+    {
+      "id": 1,
+      "title": "Yeni Soğuk Süt Tankı Desteği Başvuruları Başladı",
+      "imageUrl": "https://images.unsplash.com/photo-1455278692843-63ddd00b2165?q=80&w=2070&auto=format&fit=crop",
+      "isHeadline": true,
+      "date": "2025-01-15",
+      "summary": "2024 yılı soğuk süt tankı desteği başvuruları bu ay başlamıştır. Üyelerimiz birlik merkezimizden bilgi alabilirler."
+    },
+    {
+      "id": 2,
+      "title": "Birlik Genel Kurul Toplantısı Gerçekleştirildi",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop",
+      "isHeadline": true,
+      "date": "2025-01-10",
+      "summary": "Birliğimizin 2024 yılı faaliyetleri değerlendirildi ve 2025 yılı hedefleri belirlendi. Toplantıya 150 üye katılım sağladı."
+    },
+    {
+      "id": 3,
+      "title": "Süt Kalite Analiz Laboratuvarı Açıldı",
+      "imageUrl": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=2070&auto=format&fit=crop",
+      "isHeadline": true,
+      "date": "2025-01-05",
+      "summary": "Modern ekipmanlarla donatılmış yeni laboratuvarımız hizmete açıldı. Artık süt kalite analizleri daha hızlı yapılacak."
+    },
+    {
+      "id": 4,
+      "title": "Veteriner Hekim Desteği Genişletildi",
+      "imageUrl": "https://images.unsplash.com/photo-1559235038-1b0faeb60e63?q=80&w=2070&auto=format&fit=crop",
+      "isHeadline": false,
+      "date": "2024-12-28",
+      "summary": "Üyelerimize daha iyi hizmet vermek için veteriner hekim sayısı artırıldı."
+    },
+    {
+      "id": 1754482656753,
+      "title": "deneme",
+      "summary": "deneme",
+      "imageUrl": "",
+      "date": "2025-08-06",
+      "isHeadline": true
+    }
+  ],
+  "gallery": [
+    {
+      "id": "410d0b5a-efc9-4dfe-9592-caa07a88310f",
+      "src": "https://media.licdn.com/dms/image/v2/D4D22AQFcqsxVmp97Ew/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1681904690536?e=2147483647&v=beta&t=fsAVNXAEqKszcgSVx0TTvBf_GSUIL4oOrsgwgFthbJA",
+      "alt": "Galeri fotoğrafı"
+    },
+    {
+      "id": "fb5a4f48-81a3-4ae6-8a13-9859d81eae0b",
+      "src": "https://www.malkaramedya.com/images/haberler/2021/12/suleymanpasa-malkara-ve-kirklareli-merkezde-sut-toplamasi-dijitallesiyor-1639401600.jpg",
+      "alt": "Galeri fotoğrafı"
+    },
+    {
+      "id": "9877b801-2d1b-4401-8338-e59ab8459b22",
+      "src": "http://www.kirklareli.gov.tr/kurumlar/kirklareli.gov.tr/haber-belgeler/2022/11-KASIM/20221129-5/1.jpg?mode=resize&width=1200",
+      "alt": "Galeri fotoğrafı"
+    }
+  ],
+  "contact": {
+    "branches": [
+      {
+        "name": "Merkez Şube",
+        "address": "Kocahıdır Mah. Paşa Çeşme Cad. No:123, 39100 Merkez/Kırklareli",
+        "phone": "0 (288) 123 45 67",
+        "email": "bilgi@kirklarelisutbirlik.org.tr",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48205.28825601134!2d27.187313848632808!3d41.734027400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b30c1312f45599%3A0x4a4f354366052f75!2sK%C4%B1rklareli%2C%20K%C4%B1rklareli%20Merkez%2FK%C4%B1rklareli!5e0!3m2!1str!2str!4v1689456789123!5m2!1str!2str"
+      },
+      {
+        "name": "Lüleburgaz Şube",
+        "address": "Merkez Mah. Atatürk Cad. No:45, 39750 Lüleburgaz/Kırklareli",
+        "phone": "0 (288) 456 78 90",
+        "email": "luleburgaz@kirklarelisutbirlik.org.tr",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24075.123456789!2d27.3579!3d41.4029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b305db12345678%3A0x1234567890abcdef!2sL%C3%BCleburgaz%2C%20K%C4%B1rklareli!5e0!3m2!1str!2str!4v1689456789124!5m2!1str!2str"
+      }
+    ]
+  },
+  "legal": {
+    "law5200": {
+      "title": "5200 Sayılı Üretici Birlikleri Kanunu",
+      "content": [
+        "5200 sayılı \"Tarımsal Üretici Birlikleri Hakkında Kanun\" 21/12/2004 tarihli ve 25687 sayılı Resmi Gazete'de yayımlanarak yürürlüğe girmiştir.",
+        "Bu kanunla, tarımsal ürünlerin değerlendirilmesi ve pazarlanması ile üreticilerin ekonomik ve sosyal durumlarının iyileştirilmesi amacıyla tarımsal üretici birliklerinin kurulması, işleyişi ve denetimi düzenlenmiştir."
+      ],
+      "downloadUrl": "https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5200.pdf"
+    },
+    "regulation": {
+      "title": "Üretici Birlikleri Tüzüğü",
+      "content": [
+        "Üretici Birlikleri Tüzüğü, 5200 sayılı Kanun'un uygulanmasına dair usul ve esasları belirlemektedir.",
+        "Tüzükte birlik kurma şartları, organları, üyelik işlemleri, mali hükümler ve denetim esasları düzenlenmiştir."
+      ],
+      "downloadUrl": "#"
+    },
+    "supportDecrees": {
+      "title": "Destekleme Kararnameleri",
+      "content": [
+        {
+          "year": "2024",
+          "title": "2024 Yılı Destekleme Kararları",
+          "items": [
+            "Süt üretimi teşvik primi: Litre başına 0,50 TL",
+            "Kalite prim desteği: A+ kalite sütler için %10 ek prim",
+            "Organik süt desteği: Litre başına 1,00 TL"
+          ]
+        },
+        {
+          "year": "2024",
+          "title": "Soğutma Tankı Destekleri",
+          "items": [
+            "Bireysel soğutma tankı alımında %50 oranında destek sağlanmaktadır.",
+            "Azami destek tutarı 25.000 TL'dir."
+          ]
+        }
+      ],
+      "downloadUrl": "#"
+    }
+  },
+  "footer": {
+    "copyright": "Kırklareli Süt Üreticileri Birliği. Tüm Hakları Saklıdır.",
+    "socials": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com"
+    }
+  }
+}
