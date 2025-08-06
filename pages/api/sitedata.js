@@ -1,7 +1,9 @@
 import fs from 'fs/promises';
 import path from 'path';
+import siteDataJson from '../../db.json' assert { type: 'json' };
 
-const DB_PATH = path.join(process.cwd(), 'db.json');
+// Static data backup
+let siteData = siteDataJson;
 
 export default async function handler(req, res) {
   // CORS headers
@@ -19,27 +21,35 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    // Tüm site verilerini getir
     try {
-      const data = await fs.readFile(DB_PATH, 'utf-8');
-      res.status(200).json(JSON.parse(data));
+      // Önce static data'yı döndür
+      res.status(200).json(siteData);
     } catch (error) {
       console.error('GET Error:', error);
-      res.status(500).json({ message: 'Veriler okunamadı.', error: error.message });
+      res.status(500).json({ 
+        message: 'Veriler okunamadı.', 
+        error: error.message 
+      });
     }
   } else if (req.method === 'POST') {
     // Site verilerini güncelle
-    const { password, data } = req.body;
-    if (password !== '12345') {
-      return res.status(401).json({ message: 'Yetkisiz işlem' });
-    }
-
     try {
-      await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
-      res.status(200).json({ message: 'Veriler başarıyla güncellendi!' });
+      const { password, data } = req.body;
+      if (password !== '12345') {
+        return res.status(401).json({ message: 'Yetkisiz işlem' });
+      }
+
+      // Memory'de güncelle
+      siteData = data;
+      
+      // Vercel'de file write denemeyin - read-only filesystem
+      res.status(200).json({ message: 'Veriler başarıyla güncellendi! (Memory)' });
     } catch (error) {
       console.error('POST Error:', error);
-      res.status(500).json({ message: 'Veriler yazılamadı.', error: error.message });
+      res.status(500).json({ 
+        message: 'Veriler yazılamadı.', 
+        error: error.message 
+      });
     }
   } else {
     res.status(405).json({ message: 'Method not allowed' });
