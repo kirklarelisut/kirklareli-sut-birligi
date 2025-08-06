@@ -1,9 +1,9 @@
-const fs = require('fs').promises;
-const path = require('path');
+import fs from 'fs/promises';
+import path from 'path';
 
 const DB_PATH = path.join(process.cwd(), 'db.json');
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -25,7 +25,7 @@ module.exports = async function handler(req, res) {
       res.status(200).json(JSON.parse(data));
     } catch (error) {
       console.error('GET Error:', error);
-      res.status(500).json({ message: 'Veriler okunamadı.' });
+      res.status(500).json({ message: 'Veriler okunamadı.', error: error.message });
     }
   } else if (req.method === 'POST') {
     // Site verilerini güncelle
@@ -39,7 +39,7 @@ module.exports = async function handler(req, res) {
       res.status(200).json({ message: 'Veriler başarıyla güncellendi!' });
     } catch (error) {
       console.error('POST Error:', error);
-      res.status(500).json({ message: 'Veriler yazılamadı.' });
+      res.status(500).json({ message: 'Veriler yazılamadı.', error: error.message });
     }
   } else {
     res.status(405).json({ message: 'Method not allowed' });

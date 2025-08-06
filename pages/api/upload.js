@@ -1,20 +1,4 @@
-const fs = require('fs').promises;
-const path = require('path');
-const multer = require('multer');
-
-// Multer konfigürasyonu
-const upload = multer({
-  dest: '/tmp/',
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype.startsWith('image/')) {
-      cb(null, true);
-    } else {
-      cb(new Error('Sadece resim dosyaları kabul edilir'), false);
-    }
-  }
-});
-
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -34,14 +18,14 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    // Basit dosya upload implementasyonu
+    // Basit upload response - Vercel'de file upload karmaşık
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     const filename = `image-${uniqueSuffix}.png`;
     
-    // Şimdilik sadece URL döndür (gerçek upload Vercel'de başka şekilde yapılır)
+    // Şimdilik placeholder URL döndür
     res.status(200).json({ imageUrl: `/uploads/${filename}` });
   } catch (error) {
     console.error('Upload error:', error);
-    res.status(500).json({ message: 'Dosya yüklenirken hata oluştu.' });
+    res.status(500).json({ message: 'Dosya yüklenirken hata oluştu.', error: error.message });
   }
 } 
