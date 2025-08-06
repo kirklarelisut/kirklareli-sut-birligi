@@ -535,7 +535,7 @@ export default function App() {
       try {
         // Production ve development için farklı endpoint'ler
         const apiUrl = process.env.NODE_ENV === 'production' 
-          ? './api.php' 
+          ? '/api/sitedata' 
           : 'http://localhost:3008/api/sitedata';
         
         const response = await fetch(apiUrl);
@@ -610,7 +610,7 @@ export default function App() {
     try {
       // Production ve development için farklı endpoint'ler
       const apiUrl = process.env.NODE_ENV === 'production' 
-        ? './api.php' 
+        ? '/api/sitedata' 
         : 'http://localhost:3008/api/sitedata';
       
       const response = await fetch(apiUrl, {
@@ -669,7 +669,7 @@ export default function App() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <a href="#" onClick={() => setCurrentPage('Ana Sayfa')} className="block">
-                <img className="h-16 w-auto" src={siteData.general.logoUrl.startsWith('http') ? siteData.general.logoUrl : `http://localhost:3008${siteData.general.logoUrl}`} alt={siteData.general.siteName} />
+                <img className="h-16 w-auto" src={siteData.general.logoUrl.startsWith('http') ? siteData.general.logoUrl : siteData.general.logoUrl} alt={siteData.general.siteName} />
               </a>
             </div>
 
@@ -824,7 +824,7 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                 {/* Logo & Socials */}
                 <div className="md:col-span-4">
-                    <img src={siteData.general.logoUrl.startsWith('http') ? siteData.general.logoUrl : `http://localhost:3008${siteData.general.logoUrl}`} alt={siteData.general.siteName} className="h-12 mb-4" />
+                    <img src={siteData.general.logoUrl.startsWith('http') ? siteData.general.logoUrl : siteData.general.logoUrl} alt={siteData.general.siteName} className="h-12 mb-4" />
                      <div className="mt-6 flex space-x-4">
                         <a href={siteData.footer.socials.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><FacebookIcon className="h-6 w-6"/></a>
                         <a href={siteData.footer.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><InstagramIcon className="h-6 w-6"/></a>

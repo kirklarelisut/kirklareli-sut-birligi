@@ -24,7 +24,7 @@ const ManageGeneral = ({ data, onSave, onBack }) => {
           formData.append('image', file);
           setUploading(true);
           try {
-              const res = await fetch('http://localhost:3008/api/upload', {
+              const res = await fetch('/api/upload', {
                   method: 'POST',
                   body: formData
               });
@@ -82,7 +82,7 @@ const ManageGeneral = ({ data, onSave, onBack }) => {
             <label className="block text-sm font-medium text-gray-700">Veya Bilgisayardan Logo Yükle</label>
             <input type="file" onChange={handleFileChange} className="mt-1 block text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
             {uploading && <p className="text-sm text-blue-600 mt-2">Yükleniyor...</p>}
-            {generalData.logoUrl && <img src={generalData.logoUrl.startsWith('http') ? generalData.logoUrl : `http://localhost:3008${generalData.logoUrl}`} alt="Mevcut Logo" className="mt-4 h-16 bg-gray-100 p-2 rounded"/>}
+                            {generalData.logoUrl && <img src={generalData.logoUrl.startsWith('http') ? generalData.logoUrl : generalData.logoUrl} alt="Mevcut Logo" className="mt-4 h-16 bg-gray-100 p-2 rounded"/>}
         </div>
         <hr/>
         <div>

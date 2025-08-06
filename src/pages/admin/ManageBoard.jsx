@@ -13,7 +13,7 @@ const ManageBoard = ({ data, onSave, onBack }) => {
           formData.append('image', file);
           setUploading(true);
           try {
-              const res = await fetch('http://localhost:3008/api/upload', {
+              const res = await fetch('/api/upload', {
                   method: 'POST',
                   body: formData
               });
