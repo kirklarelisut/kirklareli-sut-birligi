@@ -1,47 +1,45 @@
-const fs = require('fs').promises;
-const path = require('path');
+import siteDataJson from '../db.json';
 
-const DB_PATH = path.join(process.cwd(), 'db.json');
+// Çalışan data kopyası
+let siteData = JSON.parse(JSON.stringify(siteDataJson));
 
-module.exports = async function handler(req, res) {
+export default function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
 
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
 
-  if (req.method === 'GET') {
-    // Tüm site verilerini getir
-    try {
-      const data = await fs.readFile(DB_PATH, 'utf-8');
-      res.status(200).json(JSON.parse(data));
-    } catch (error) {
-      console.error('GET Error:', error);
-      res.status(500).json({ message: 'Veriler okunamadı.' });
-    }
-  } else if (req.method === 'POST') {
-    // Site verilerini güncelle
-    const { password, data } = req.body;
-    if (password !== '12345') {
-      return res.status(401).json({ message: 'Yetkisiz işlem' });
+  try {
+    if (req.method === 'GET') {
+      console.log('GET /api/sitedata - Success');
+      return res.status(200).json(siteData);
     }
 
-    try {
-      await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
-      res.status(200).json({ message: 'Veriler başarıyla güncellendi!' });
-    } catch (error) {
-      console.error('POST Error:', error);
-      res.status(500).json({ message: 'Veriler yazılamadı.' });
+    if (req.method === 'POST') {
+      const { password, data } = req.body || {};
+      
+      if (password !== '12345') {
+        return res.status(401).json({ message: 'Yetkisiz işlem' });
+      }
+
+      // Memory'de update
+      siteData = { ...data };
+      console.log('POST /api/sitedata - Updated');
+      return res.status(200).json({ message: 'Veriler başarıyla güncellendi!' });
     }
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
+
+    return res.status(405).json({ message: 'Method not allowed' });
+
+  } catch (error) {
+    console.error('API Error:', error);
+    return res.status(500).json({ 
+      message: 'Sunucu hatası',
+      error: error.message 
+    });
   }
 } 
